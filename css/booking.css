@@ -1,0 +1,63 @@
+/* Učitava se POSLE style.css */
+
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: 0.3em;
+  color: var(--zlatna) !important;
+  text-decoration: none;
+}
+
+/* Kalendar */
+.cal-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.6rem; color: var(--bela); font-weight: 600;
+}
+.cal-nav {
+  background: none; color: var(--zlatna);
+  border: 1px solid rgba(174,184,194,0.3);
+  width: 38px; height: 38px;
+}
+.cal-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-dow span {
+  text-align: center; font-size: 0.7rem; color: var(--siva);
+  text-transform: uppercase; padding: 0.3rem 0;
+}
+.cal-day {
+  aspect-ratio: 1; min-height: 40px;
+  background: rgba(14,18,22,0.6); color: var(--krem);
+  border: 1px solid rgba(174,184,194,0.2); font-size: 0.9rem;
+}
+.cal-day:hover:not(:disabled) { border-color: var(--zlatna); }
+.cal-day:disabled { opacity: 0.25; cursor: not-allowed; }
+.cal-day.sel, .slot.sel { background: var(--zlatna); color: var(--braon-tamni); font-weight: 700; }
+
+/* Termini */
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; }
+.slot {
+  background: rgba(14,18,22,0.6); color: var(--krem);
+  border: 1px solid rgba(174,184,194,0.3); padding: 0.6rem 0; font-size: 0.9rem;
+}
+.slot:hover { border-color: var(--zlatna); }
+.slots .hint { grid-column: 1 / -1; margin: 0; color: rgba(238,241,244,0.6); font-size: 0.88rem; }
+
+/* Poruke i honeypot */
+#bkMsg { margin-top: 1rem; font-size: 0.9rem; }
+#bkMsg.ok { color: #4ade80; }
+#bkMsg.err { color: #fca5a5; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+
+/* Mapa */
+.map-wrap {
+  margin-top: 1.2rem;
+  border: 1px solid rgba(174,184,194,0.25);
+  line-height: 0;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 240px;
+  border: 0;
+}
