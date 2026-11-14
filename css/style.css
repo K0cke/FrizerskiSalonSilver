@@ -453,3 +453,41 @@ footer {
   .contact-card { padding: 2rem 1.5rem; }
   .service-card { margin-bottom: 1rem; }
 }
+
+
+/* ===== MOBILNI POPRAVCI ===== */
+
+/* clip ne pravi scroll kontejner, pa sticky navigacija radi kako treba */
+html, body { max-width: 100%; overflow-x: clip; }
+
+/* sekcije se pri skrolu ne kriju ispod sticky navigacije */
+html { scroll-padding-top: 76px; }
+
+@media (max-width: 991.98px) {
+  /* g-5 pravi negativne margine šire od padding-a kontejnera */
+  .row.g-5 { --bs-gutter-x: 1.5rem; }
+
+  /* dugačak meni se skroluje, ne seče */
+  .navbar-collapse {
+    max-height: calc(100svh - 76px);
+    overflow-y: auto;
+    padding: 0.5rem 0 1rem;
+  }
+
+  /* linija ispod teksta prati tekst, a ne ceo red */
+  .navbar-nav { align-items: flex-start; }
+  .navbar-nav .nav-link {
+    display: inline-block;
+    padding: 0.7rem 0 !important;
+  }
+  .navbar-nav .nav-link::after {
+    left: 0;
+    bottom: 0.45rem;
+    transform: none;
+  }
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after { width: 100%; }
+
+  /* dugme "Pozovite nas" malo odvojeno od linkova */
+  .navbar-nav .nav-item:last-child { margin-top: 0.75rem; }
+}
